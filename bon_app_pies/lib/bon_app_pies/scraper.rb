@@ -10,9 +10,10 @@ class Scraper
       
       title = pie_doc.text
       url = pie_doc.attr("href")
-      Pie.new(title)
+      Pie.new(title, url)
+      
     
-     binding.pry
+     
      
      end
   end
