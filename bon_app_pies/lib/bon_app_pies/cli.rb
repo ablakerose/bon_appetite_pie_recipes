@@ -8,9 +8,9 @@ class CLI
     puts '         __..---..__          '
     puts "     ,-='  /  |  \  `=-.      "
     puts '    :--..___________..--;     '
-    puts '     \.,_____________,./      \n'
-    
-    puts "\n Select a number to see more details about your favorite pie! \n"
+    puts '     \.,_____________,./      '
+    puts "\n \n"  
+  
     Scraper.scrape_bon_app_pies
     
     Pie.all.each.with_index(1) do |pie, i|
@@ -18,6 +18,7 @@ class CLI
     end
     menu
   end
+  
   def menu
     puts "Please select a pie to view its details:"
     
@@ -26,6 +27,7 @@ class CLI
     pie = Pie.all[input.to_i - 1]
     if pie 
       Scraper.scrape_pie_details(pie)
+      puts "\n \n"
       puts "\n Here are the details for #{pie.title}"
       puts "\n \n Pie Description: #{pie.description} \n \n"
       puts "\n List of Ingredients: #{pie.ingredients}\n"
