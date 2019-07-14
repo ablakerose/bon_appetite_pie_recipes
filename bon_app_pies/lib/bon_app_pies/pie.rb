@@ -5,7 +5,7 @@ class Pie
   
   def initialize(title, url)
     @title = title 
-    @utl = url
+    @url = url
     @@all << self
   end
   
