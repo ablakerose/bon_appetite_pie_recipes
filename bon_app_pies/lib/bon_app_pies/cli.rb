@@ -1,8 +1,16 @@
 class CLI 
   def run
 
-    puts 'the cli is running!'
+    puts 'Who is ready for pie?!'
     
+    puts '            (                 '
+    puts '              )               '
+    puts '         __..---..__          '
+    puts "     ,-='  /  |  \  `=-.      "
+    puts '    :--..___________..--;     '
+    puts '     \.,_____________,./      \n'
+    
+    puts "\n Select a number to see more details about your favorite pie! \n"
     Scraper.scrape_bon_app_pies
     
     Pie.all.each.with_index(1) do |pie, i|
