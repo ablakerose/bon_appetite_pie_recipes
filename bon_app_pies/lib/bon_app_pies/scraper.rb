@@ -8,8 +8,8 @@ class Scraper
     doc = Nokogiri::HTML(html)
     
     doc.css(".external-link")[7..42].each do |pie_doc|
-      title = pie_doc.text
-      url = pie_doc.attr("href")
+      title = pie_doc.text.strip
+      url = pie_doc.attr("href").strip
       Pie.new(title, url)
     end
   end
