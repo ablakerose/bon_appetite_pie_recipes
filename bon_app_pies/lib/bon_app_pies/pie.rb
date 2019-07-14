@@ -1,6 +1,6 @@
 class Pie 
   
-  attr_accessor :title, :url
+  attr_accessor :title, :url, :description, :ingredients
   @@all = []
   
   def initialize(title, url)
