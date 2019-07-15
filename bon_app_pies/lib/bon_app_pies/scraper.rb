@@ -23,7 +23,7 @@ class Scraper
     pie.ingredients = doc.css(".ingredients__group li").map.with_index(1) {|ingredient, i| puts "#{i}.#{ingredient} + '\n'"}
     pie.directions = doc.css(".steps li").text
     #both pie.ingredients and pie.directions are arrays. I want to know how i can iterate over them to ensure that each new element of the array begins on a new line
-    
+    binding.pry
   end
   
   # def self.ingredients_as_list
