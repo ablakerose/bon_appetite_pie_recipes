@@ -18,7 +18,8 @@ class Scraper
     html = open(pie.url)
     doc = Nokogiri::HTML(html)
     pie.description = doc.css(".dek--basically").text
-    pie.ingredients = doc.css(".ingredients__inner").text
+    pie.ingredients = doc.css(".ingredient").text
+    binding.pry
     
   end
 end
