@@ -18,8 +18,20 @@ class Scraper
     html = open(pie.url)
     doc = Nokogiri::HTML(html)
     pie.description = doc.css(".dek--basically").text
-    pie.ingredients = doc.css(".ingredient").text
-    binding.pry
+    # pie.ingredients = doc.css(".ingredient").text
+    # pie.ingredients = doc.css(".ingredients__group li").text
+    pie.ingredients = doc.css(".ingredients__group li").map.with_index(1) {|ingredient, i| puts "#{i}.#{ingredient} + '\n'"}
+    pie.directions = doc.css(".steps li").text
+    #both pie.ingredients and pie.directions are arrays. I want to know how i can iterate over them to ensure that each new element of the array begins on a new line
+    
     
   end
+  
+  # def self.ingredients_as_list
+  #   pie.ingredients.each.with_index(1) do |ingredient, i|
+  #     puts "#{i}. #{ingredient}" 
+  #   end
+  # end
+    
+  
 end
