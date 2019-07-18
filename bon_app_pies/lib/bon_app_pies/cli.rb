@@ -7,6 +7,7 @@ class CLI
     
     Pie.all.each.with_index(1) do |pie, i|
       puts "#{i}. #{pie.title}"
+    #move this into its own method, so i can call it in run and also call it in case the user needs to run it again. This is just moving the logic that prints the actual names. If they select list, then I would call the #print_all_pies method again. GOing to have to update my menu to include a conditional if the user enters list.  
     
     end
     menu
@@ -29,7 +30,7 @@ class CLI
     
     input = gets.chomp
     
-    if input = "exit"
+    if input == "exit"
       exit
     elsif input.to_i > 0 && input.to_i <= Pie.all.size
       pie = Pie.all[input.to_i - 1]
@@ -44,10 +45,13 @@ class CLI
       puts "Invalid choice...please select again!"
     end
     menu
+    #instead of prmpting for menu again, user should have option to go back to the list or exit. User selecting going back to the list... create a method called #print_pie_list
   end
   
-   
+   def 
+     pie.ingredients.map || 
   
+  #move everything from 35 to 42 to be its own method. If user makes a valid input, pass that input to my #print_pie_details method. #print_pie_details method will have to check if those details have been scraped or not. If someone selects same pie, don't scrape again, print the details that have already been added to that pie instance. (Use a simple conditional to see if those details exist or not)
   
 end
 
