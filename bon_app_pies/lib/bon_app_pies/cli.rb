@@ -29,8 +29,10 @@ class CLI
     
     input = gets.chomp
     
-    pie = Pie.all[input.to_i - 1]
-    if pie 
+    if input = "exit"
+      exit
+    elsif input.to_i > 0 && input.to_i <= Pie.all.size
+      pie = Pie.all[input.to_i - 1]
       Scraper.scrape_pie_details(pie)
       puts "\n \n"
       puts "\n #{pie.title}".upcase.green
