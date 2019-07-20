@@ -26,11 +26,11 @@ class Scraper
     #probably something wrong with CSS selector. The way it's written, "ingredient" would represent an entire object. Ingredient.text 
     #anything that does a puts, I have to move to CLI. 
     #change my scraper so that my pie.ingredients is an array of ingredients and then in CLI, I can say pie.ingredients.map and print each one of those ingredients. 
-    pie.directions = doc.css(".steps li").text
+    #pie.directions = doc.css(".steps li").text
     #iterate over the return of doc.css(".steps li") iterate over them and grab the text of each individual one and then add those elements to an array. if I want it to properly be an array of each individual step, I have to change line 26. 
-    .doc.css.map do |step| 
-      step.text
-      #then when i print that in my CLI class, I would do something like pie.directions.each.with_index and print each individual steps. 
+    #.doc.css.map do |step| 
+     # step.text
+      #then when i print that in my CLI class, I would do something like pie.directions.each.with_index and print each individual #steps. 
     
     #both pie.ingredients and pie.directions are arrays. I want to know how i can iterate over them to ensure that each new element of the array begins on a new line
     
