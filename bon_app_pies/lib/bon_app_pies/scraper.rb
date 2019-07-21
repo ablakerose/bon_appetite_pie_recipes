@@ -1,14 +1,12 @@
 class Scraper
   
-  # BON_APPETITE_PIE_URL = "https://www.bonappetit.com"
-  
   def self.scrape_bon_app_pies
     html = open('https://www.bonappetit.com/recipes/desserts/slideshow/pie-recipes')
     
     doc = Nokogiri::HTML(html)
     
     doc.css(".external-link")[7..42].each do |pie_doc|
-      title = pie_doc.text.strip
+      title = pie_doc.text.gsub("BA's Best ", "").strip
       url = pie_doc.attr("href").strip
       Pie.new(title, url)
     end
@@ -18,14 +16,21 @@ class Scraper
     html = open(pie.url)
     doc = Nokogiri::HTML(html)
     pie.description = doc.css(".dek--basically").text
-    # pie.ingredients = doc.css(".ingredient").text
-    # pie.ingredients = doc.css(".ingredients__group li").text
+    pie.ingredients = doc.css(".ingredient").map {|ingredient| ingredient.text}
     
-    ingredient_list = doc.css(".ingredients__text").text.each do |ingredient_list|
-      ingredients = ingredient_list.text
-    end
-      
-    pie.ingredients = doc.css(".ingredients__group li").map.with_index(1) {|ingredient, i| puts "#{i}.#{ingredient} + '\n'"}
+    
+    #pie.ingredients = doc.css(".ingredient").each.with_index(1) {|ingredient, i| puts "{#i}  {#ingredient}"}.text
+    #this returns all the ingredients but in a lump. there is no space between ingredients following one another.
+    
+    
+    #ingredient_list = doc.css(".ingredients__text").text.each do |ingredient_list|
+      #ingredients << ingredient_list.text
+    #end
+    #pie.ingredients = doc.css(".ingredient").map.with_index(1) {|ingredient, i| puts "#{i}.#{ingredient} + '\n'"}
+    
+    #pie.ingredients = doc.css(".ingredients__group li").map.with_index(1) {|ingredient, i| puts "#{i}.#{ingredient} + '\n'"}
+    
+    
     #pie.ingredients = doc.css("ingredient selector").map {|ingredient| ingredient.text}
     #I want pie.ingredients = doc.css.ingredient.text
     #probably something wrong with CSS selector. The way it's written, "ingredient" would represent an entire object. Ingredient.text 

@@ -25,7 +25,7 @@ class CLI
   
   
   def menu
-    puts "CHOOSE A PIE TO GET COOKIN'! Or type 'list' to see the list of pies again or 'exit' to leave the program.".red
+    puts "CHOOSE A PIE TO GET COOKIN'! Or type 'list' to see the list of pies again or type 'exit' at any time to leave the program.".red
     
     input = gets.chomp
     
@@ -49,8 +49,9 @@ class CLI
     #instead of prmpting for menu again, user should have option to go back to the list or exit. User selecting going back to the list... create a method called #print_pie_list
   end
   
-  # def 
-  #   pie.ingredients.map || 
+  def ingredients_list
+    pie.ingredients.map.with_index(1) {|ingredient_list, i| puts "{#i}  {#ingredient_list}"}
+  end
   
   # #move everything from 35 to 42 to be its own method. If user makes a valid input, pass that input to my #print_pie_details method. #print_pie_details method will have to check if those details have been scraped or not. If someone selects same pie, don't scrape again, print the details that have already been added to that pie instance. (Use a simple conditional to see if those details exist or not)
   
