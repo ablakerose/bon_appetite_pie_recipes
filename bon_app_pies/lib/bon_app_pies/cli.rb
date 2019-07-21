@@ -25,7 +25,7 @@ class CLI
   
   
   def menu
-    puts "CHOOSE A PIE TO GET COOKIN'! Or list to see the list of pies again or exit to leave the program.".red
+    puts "CHOOSE A PIE TO GET COOKIN'! Or type 'list' to see the list of pies again or 'exit' to leave the program.".red
     
     input = gets.chomp
     

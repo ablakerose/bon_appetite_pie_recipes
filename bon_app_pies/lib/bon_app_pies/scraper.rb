@@ -20,6 +20,11 @@ class Scraper
     pie.description = doc.css(".dek--basically").text
     # pie.ingredients = doc.css(".ingredient").text
     # pie.ingredients = doc.css(".ingredients__group li").text
+    
+    ingredient_list = doc.css(".ingredients__text").text.each do |ingredient_list|
+      ingredients = ingredient_list.text
+    end
+      
     pie.ingredients = doc.css(".ingredients__group li").map.with_index(1) {|ingredient, i| puts "#{i}.#{ingredient} + '\n'"}
     #pie.ingredients = doc.css("ingredient selector").map {|ingredient| ingredient.text}
     #I want pie.ingredients = doc.css.ingredient.text
@@ -32,7 +37,7 @@ class Scraper
      # step.text
       #then when i print that in my CLI class, I would do something like pie.directions.each.with_index and print each individual #steps. 
     
-    #both pie.ingredients and pie.directions are arrays. I want to know how i can iterate over them to ensure that each new element of the array begins on a new line
+   
     
   end
   
