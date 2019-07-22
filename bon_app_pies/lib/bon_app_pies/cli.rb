@@ -56,12 +56,9 @@ class CLI
     pie.ingredients.map.with_index(1) {|ingredient_list, i| puts "{#i}  {#ingredient_list}"}
   end
 
-  # #move everything from 35 to 42 to be its own method. If user makes a valid input, pass that input to my #print_pie_details method. #print_pie_details method will have to check if those details have been scraped or not. If someone selects same pie, don't scrape again, print the details that have already been added to that pie instance. (Use a simple conditional to see if those details exist or not)
-
     def print_all_pies
       Pie.all.each.with_index(1) do |pie, i|
       puts "#{i}. #{pie.title}"
-  #move this into its own method, so i can call it in run and also call it in case the user needs to run it again. This is just moving the logic that prints the actual names. If they select list, then I would call the #print_all_pies method again. GOing to have to update my menu to include a conditional if the user enters list.
-  end
+end
 
 end
