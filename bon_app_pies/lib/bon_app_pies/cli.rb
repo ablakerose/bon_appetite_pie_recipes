@@ -42,13 +42,18 @@ class CLI
       puts "\n \n"
       puts "\n #{pie.title}".upcase.green
       puts "\n \n * P I E   D E S C R I P T I O N * \n".light_blue + "#{pie.description} \n \n"
-      puts "\n * L I S T  O F  I N G R E D I E N T S * \n".light_blue + "#{pie.ingredients}\n"
+      puts "\n * L I S T  O F  I N G R E D I E N T S * \n".light_blue
+      print_items(pie.ingredients)
       puts "\n * D I R E C T I O N S * \n".light_blue + "#{pie.directions}\n"
       puts "\n \n"
     else
       puts "Invalid choice...please select again!"
     end
     menu
+  end
+
+  def print_items(list_items)
+    list_items.map.with_index(1) {|item, i| puts "#{i} #{item}"}
   end
 
 
