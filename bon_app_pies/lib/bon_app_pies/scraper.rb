@@ -19,38 +19,6 @@ class Scraper
     pie.ingredients = doc.css(".ingredient").map {|ingredient| ingredient.text}
     pie.directions = doc.css(".steps li").map {|paragraph| paragraph.text}
 
-    #pie.ingredients = doc.css(".ingredient").each.with_index(1) {|ingredient, i| puts "{#i}  {#ingredient}"}.text
-    #this returns all the ingredients but in a lump. there is no space between ingredients following one another.
-
-
-    #ingredient_list = doc.css(".ingredients__text").text.each do |ingredient_list|
-      #ingredients << ingredient_list.text
-    #end
-    #pie.ingredients = doc.css(".ingredient").map.with_index(1) {|ingredient, i| puts "#{i}.#{ingredient} + '\n'"}
-
-    #pie.ingredients = doc.css(".ingredients__group li").map.with_index(1) {|ingredient, i| puts "#{i}.#{ingredient} + '\n'"}
-
-
-    #pie.ingredients = doc.css("ingredient selector").map {|ingredient| ingredient.text}
-    #I want pie.ingredients = doc.css.ingredient.text
-    #probably something wrong with CSS selector. The way it's written, "ingredient" would represent an entire object. Ingredient.text
-    #anything that does a puts, I have to move to CLI.
-    #change my scraper so that my pie.ingredients is an array of ingredients and then in CLI, I can say pie.ingredients.map and print each one of those ingredients.
-    #pie.directions = doc.css(".steps li").text
-    #iterate over the return of doc.css(".steps li") iterate over them and grab the text of each individual one and then add those elements to an array. if I want it to properly be an array of each individual step, I have to change line 26.
-    #.doc.css.map do |step|
-     # step.text
-      #then when i print that in my CLI class, I would do something like pie.directions.each.with_index and print each individual #steps.
-
-
-
   end
-
-  # def self.ingredients_as_list
-  #   pie.ingredients.each.with_index(1) do |ingredient, i|
-  #     puts "#{i}. #{ingredient}"
-  #   end
-  # end
-
 
 end

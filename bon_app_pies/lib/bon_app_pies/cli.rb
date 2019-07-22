@@ -49,16 +49,12 @@ class CLI
       puts "Invalid choice...please select again!"
     end
     menu
-    #instead of prmpting for menu again, user should have option to go back to the list or exit. User selecting going back to the list... create a method called #print_pie_list
   end
 
-  def ingredients_list
-    pie.ingredients.map.with_index(1) {|ingredient_list, i| puts "{#i}  {#ingredient_list}"}
-  end
 
-    def print_all_pies
-      Pie.all.each.with_index(1) do |pie, i|
-      puts "#{i}. #{pie.title}"
-end
+  def print_all_pies
+    Pie.all.each.with_index(1) do |pie, i|
+    puts "#{i}. #{pie.title}"
+  end
 
 end
