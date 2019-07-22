@@ -41,10 +41,11 @@ class CLI
       Scraper.scrape_pie_details(pie)
       puts "\n \n"
       puts "\n #{pie.title}".upcase.green
-      puts "\n \n * P I E   D E S C R I P T I O N * \n".light_blue + "#{pie.description} \n \n"
+      puts "\n \n * P I E   D E S C R I P T I O N * \n".light_blue + "\n #{pie.description} \n \n"
       puts "\n * L I S T  O F  I N G R E D I E N T S * \n".light_blue
       print_items(pie.ingredients)
-      puts "\n * D I R E C T I O N S * \n".light_blue + "#{pie.directions}\n"
+      puts "\n * D I R E C T I O N S * ".light_blue
+      print_directions(pie.directions)
       puts "\n \n"
     else
       puts "Invalid choice...please select again!"
@@ -53,9 +54,12 @@ class CLI
   end
 
   def print_items(list_items)
-    list_items.map.with_index(1) {|item, i| puts "#{i} #{item}"}
+    list_items.map.with_index {|item| puts "#{item}"}
   end
 
+  def print_directions(directions_list)
+    directions_list.map.with_index(1) {|paragraph, i| puts "\n #{i}. #{paragraph} \n"}
+  end
 
   def print_all_pies
     Pie.all.each.with_index(1) do |pie, i|
