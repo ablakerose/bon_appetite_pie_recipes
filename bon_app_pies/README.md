@@ -1,8 +1,6 @@
 # BonAppPies
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/bon_app_pies`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the BonAppPies gem! This Gem allows you to view several pie recipes directly from the Bon Appetit website. Once a pie is selected, you can read a description, see ingredients and follow a recipe description. You may then see a list anew and find a new recipe or exit the program.
 
 ## Installation
 
@@ -22,7 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Type the below and follow the on screen prompts.
+
+$ bon_app_pies
 
 ## Development
 
