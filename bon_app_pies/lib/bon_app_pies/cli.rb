@@ -35,7 +35,7 @@ class CLI
   def selection
     puts "\nWhat would you like to do?"
     input = gets.strip.downcase
-    check_selection(input) 
+    check_selection(input)
   end
 
   def check_selection(input)
@@ -44,7 +44,7 @@ class CLI
     elsif input == "list"
       print_all_pies
     elsif input.to_i > 0 && input.to_i <= Pie.all.size
-      pie_method
+      pie_method(input)
     else
       puts "Invalid choice...please select again!"
     end
