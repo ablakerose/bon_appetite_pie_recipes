@@ -29,28 +29,39 @@ class CLI
     puts "TYPE THE NUMBER OF A PIE TO GET COOKIN'!".red
     puts "Or, type 'list' at any time to see the list of pies again.".red
     puts "Or, type 'exit' at any time to leave the program.".red
+    selection
+  end
 
+  def selection
+    puts "\nWhat would you like to do?"
     input = gets.strip.downcase
+    check_selection(input) 
+  end
 
+  def check_selection(input)
     if input == "exit"
       exit
     elsif input == "list"
       print_all_pies
     elsif input.to_i > 0 && input.to_i <= Pie.all.size
-      pie = Pie.all[input.to_i - 1]
-      Scraper.scrape_pie_details(pie)
-      puts "\n \n"
-      puts "\n #{pie.title}".upcase.green
-      puts "\n \n * P I E   D E S C R I P T I O N * \n".light_blue + "\n #{pie.description} \n \n"
-      puts "\n * L I S T  O F  I N G R E D I E N T S * \n".light_blue
-      print_items(pie.ingredients)
-      puts "\n * D I R E C T I O N S * ".light_blue
-      print_directions(pie.directions)
-      puts "\n \n"
+      pie_method
     else
       puts "Invalid choice...please select again!"
     end
     menu
+  end
+
+  def pie_method(input)
+    pie = Pie.all[input.to_i - 1]
+    Scraper.scrape_pie_details(pie)
+    puts "\n \n"
+    puts "\n #{pie.title}".upcase.green
+    puts "\n \n * P I E   D E S C R I P T I O N * \n".light_blue + "\n #{pie.description} \n \n"
+    puts "\n * L I S T  O F  I N G R E D I E N T S * \n".light_blue
+    print_items(pie.ingredients)
+    puts "\n * D I R E C T I O N S * ".light_blue
+    print_directions(pie.directions)
+    puts "\n \n"
   end
 
   def print_items(list_items)
