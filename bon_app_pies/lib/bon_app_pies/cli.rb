@@ -30,7 +30,7 @@ class CLI
     puts "Or, type 'list' at any time to see the list of pies again.".red
     puts "Or, type 'exit' at any time to leave the program.".red
 
-    input = gets.chomp
+    input = gets.strip.downcase
 
     if input == "exit"
       exit
