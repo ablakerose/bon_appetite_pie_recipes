@@ -44,14 +44,14 @@ class CLI
     elsif input == "list"
       print_all_pies
     elsif input.to_i > 0 && input.to_i <= Pie.all.size
-      pie_method(input)
+      pie_selection(input)
     else
       puts "Invalid choice...please select again!"
     end
     menu
   end
 
-  def pie_method(input)
+  def pie_selection(input)
     pie = Pie.all[input.to_i - 1]
     Scraper.scrape_pie_details(pie)
     puts "\n \n"
